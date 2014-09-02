@@ -1,0 +1,22 @@
+package main
+import(
+    "fmt"
+    "time"
+)
+var c chan int
+func ready(w string,sec int64){
+    secs := time.Duration(sec)*time.Second
+    time.Sleep(secs)
+    fmt.Println(w,"is ready!")
+    c <- 1
+}
+func main(){
+    c = make(chan int)
+    go ready("tea",1)
+    go ready("coffe",2)
+    fmt.Println("it is over!!!")
+    time.Sleep(3 * 1e9)
+    <-c
+    <-c
+    
+}
