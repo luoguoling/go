@@ -16,7 +16,7 @@ func main(){
     go ready("coffe",2)
     fmt.Println("it is over!!!")
     time.Sleep(3 * 1e9)
-//    <-c
-//    <-c
+    <-c
+    <-c
     
 }
